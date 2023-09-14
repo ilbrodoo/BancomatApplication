@@ -8,13 +8,14 @@ namespace BancomatApplication
         public readonly string UserName;
         public readonly string Password;
         public bool StatoConto;
+        public int NTemp;
         public double Saldo { get; private set; }
         public Account(string Username, string pw)
         {
             UserName = Username;
             Password = pw;
-            ContoCorrente conto = new ContoCorrente();
-            Saldo = conto.SaldoIniziale;
+
+            Saldo = 1000.00;
             StatoConto = true;
 
         }

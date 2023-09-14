@@ -30,22 +30,22 @@ namespace BancomatApplication
                 var username = Console.ReadLine().ToLower();
                 var password = Console.ReadLine().ToLower();
 
-                switch (username)
-                {
-                    case "pippo":
-                        numTentativiPippo++;
+                //switch (username)
+                //{
+                //    case "pippo":
+                //        numTentativiPippo++;
 
-                        break;
-                    case "pluto":
-                        numTentativiPluto++;
-                        break;
-                    case "samuele":
-                        numTentativiSamuele++;
-                        break;
-                    default:
-                        Console.WriteLine("Account Username Non Riconosciuto ")
-                            ; break;
-                }
+                //        break;
+                //    case "pluto":
+                //        numTentativiPluto++;
+                //        break;
+                //    case "samuele":
+                //        numTentativiSamuele++;
+                //        break;
+                //    default:
+                //        Console.WriteLine("Account Username Non Riconosciuto ")
+                //            ; break;
+                //}
                 foreach (var x in accounts)
                 {
                     
@@ -63,39 +63,51 @@ namespace BancomatApplication
                                 accountSelezionato = x;
                                 return accountSelezionato;
                             }
-                            else { }
+                            else {
+                               
+                            }
 
                         }
                        
-                    }
-                    if (numTentativiPippo > 2)
-                    {
+                    }else { Console.WriteLine($"Account {username} Bloccato , Contattare l'Assistenza "); }
 
-                        Console.WriteLine($"Account {username} Bloccato ");
-                        x.StatoConto = false;
-                        numTentativiPippo = 0;
-                        break;
-                    }
-                    else if (numTentativiPluto > 2)
+                    if (x.UserName.ToLower() == username)
                     {
+                        x.NTemp = x.NTemp + 1;
+                       if (x.NTemp > 2 ) 
+                        {
+                            x.StatoConto = false;
+                        }
+                    }
+                    //if (numTentativiPippo > 2)
+                    //{
 
-                        Console.WriteLine($"Account {username} Bloccato ");
-                        x.StatoConto = false;
-                        numTentativiPluto = 0;
-                        break;
-                    }
-                    else if (numTentativiSamuele > 2)
-                    {
-                        Console.WriteLine($"Account {username} Bloccato ");
-                        x.StatoConto = false;
-                        numTentativiSamuele = 0;
-                        break;
-                    }
-                    if (checkaccount )
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Errore, Riprova ");
-                    }
+                        
+                    //    x.StatoConto = false;
+                        
+                    //    break;
+                    //}
+                    //else if (numTentativiPluto > 2)
+                    //{
+
+                       
+                    //    x.StatoConto = false;
+                    //    numTentativiPluto = 0;
+                    //    break;
+                    //}
+                    //else if (numTentativiSamuele > 2)
+                    //{
+                        
+                    //    x.StatoConto = false;
+                    //    numTentativiSamuele = 0;
+                    //    break;
+                    //}
+                   
+                }
+                if (checkaccount)
+                {
+                    Console.WriteLine("------------------------------------------------------------------------------------------------");
+                    Console.WriteLine("Errore, Riprova ");
                 }
             }
             

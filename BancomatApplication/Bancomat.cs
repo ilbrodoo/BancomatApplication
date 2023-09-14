@@ -8,7 +8,7 @@ namespace BancomatApplication
 {
     public class Bancomat
     {
-        List<ContoCorrente> ContiCorrenti = new List<ContoCorrente> { };
+        
         public   double  Prelievo(double saldo , double richiestaprelievo )
         {
             if (richiestaprelievo < 0)
